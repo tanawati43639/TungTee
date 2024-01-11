@@ -25,7 +25,9 @@ function ReserveStepTwo() {
   let storefilter = Stores.filter((store) => {
     return store.title === `${ storeName }`
   });
-  
+  const handleClickCalendar = (value) => {
+    setValueCalendar(value);
+  }
   const PageNextNavigate = () => {
     Navigate(`/restaurants/${storefilter[0].title}/step3`, {state: {dateSelected: {dateSelected}, persons: {persons} }});
   }
@@ -56,7 +58,7 @@ function ReserveStepTwo() {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DateCalendar', 'DateCalendar']}>
               <DemoItem label={dateSelected}>
-                <DateCalendar value={valueCalendar} onChange={(newValue) => setValueCalendar(newValue)}/>
+                <DateCalendar value={valueCalendar} onChange={(newValue) => handleClickCalendar(newValue)}/>
               </DemoItem>
             </DemoContainer>
           </LocalizationProvider>

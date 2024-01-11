@@ -16,9 +16,9 @@ function ReserveStepThree() {
 
   const [timeSelected, setTimeSelected] = useState('');
   const btnNext = timeSelected.length > 0;
+  
   const OnhandleClick = (value) => {
     setTimeSelected(value);
-    
   }
 
   let storefilter = Stores.filter((store) => {
@@ -29,7 +29,7 @@ function ReserveStepThree() {
     Navigate(`/restaurants/${storefilter[0].title}/step2`, {state: {dateSelected: {dateSelected}, persons: {persons} }});
   }
   const PageNextNavigate = () => {
-    Navigate(`/restaurants/${storefilter[0].title}/summary`, {state: {dateSelected: {dateSelected}, persons: {persons}, timeSelected:{timeSelected} }});
+    Navigate(`/restaurants/${storefilter[0].title}/step4`, {state: {dateSelected: {dateSelected}, persons: {persons}, timeSelected:{timeSelected} }});
   }
 
   return (
